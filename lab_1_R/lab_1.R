@@ -83,9 +83,9 @@ for (val in education_values){
 }
 t4_data_frame <- t4_data_frame[order(t4_data_frame$Std_dev),]
 max_stddev <- max(t4_data_frame$Std_dev)
-g3 <- ggplot(t4_data_frame, aes(x=EducationLvl, y=Std_dev))+
-  geom_col(aes(fill=is_US))+
-  labs(y="Standard deviation")
+g3 <- ggplot(t4_data_frame, aes(x=reorder(EducationLvl, Std_dev), y=Std_dev))+
+  geom_col(aes(fill=is_US))+ # or geom_bar with parameter stat = "identity",
+  labs(x = "EducationLvl", y="Standard deviation")
 
   plot(g3)      
 
